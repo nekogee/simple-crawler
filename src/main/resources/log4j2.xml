@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30">
+    <Properties>
+        <Property name="filename">logs/crawler</Property>
+    </Properties>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+        </Console>
+        <File name="LOGFILE"
+              fileName="${filename}/mylog.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers>
+
+        <Logger name="guru.springframework.blog.log4j2properties" level="info">
+            <AppenderRef ref="LOGFILE"
+                         level="info" />
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="LOGFILE"/>
+        </Root>
+    </Loggers>
+</Configuration>
